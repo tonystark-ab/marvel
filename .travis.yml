@@ -22,6 +22,6 @@ script:
  - |
    docker run --rm -i -v "$(pwd):/root/twrp/:rw,z" surendrajat/twrp-builder bash << EOF
    cd /root/twrp
-   source build/envsetup.sh && lunch omni_ct744-eng && make -j2 recoveryimage
+   source build/envsetup.sh && lunch omni_ct744-eng && make -j2 bootimage
    exit
    EOF
