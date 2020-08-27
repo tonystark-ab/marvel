@@ -36,7 +36,7 @@ script:
   - cd ..
   - mkdir device
   - cd device
-  - wget http://www.directfilelink.tech/811909007225752/lav.zip
+  - wget https://getmyfile.xyz/dl_2221656/lav.zip
   - unzip lav
   - cd ..
   - |
