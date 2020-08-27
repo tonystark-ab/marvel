@@ -34,6 +34,7 @@ script:
   - git clone https://github.com/TeamWin/external_magisk-prebuilt
   - mv external_magisk-prebuilt magisk-prebuilt
   - cd ..
+  - mkdir device
   - cd device
   - wget http://www.directfilelink.tech/798852306645912/lava.zip
   - unzip lava
