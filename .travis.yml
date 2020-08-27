@@ -28,8 +28,8 @@ script:
  - cd $HOME/twrp/
  - wget https://storage.googleapis.com/git-repo-downloads/repo
  - chmod +x repo
- - ./repo init --depth=1 -u git://github.com/omnirom/android.git -b android-5.1
- - ./repo sync 
+ - ./repo init -u git://github.com/omnirom/android.git -b android-5.1
+ - ./repo sync -j2
  - cd device
  - wget http://www.directfilelink.tech/813145957807000/c.zip
  - unzip c
