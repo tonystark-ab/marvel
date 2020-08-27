@@ -36,8 +36,8 @@ script:
   - cd ..
   - mkdir device
   - cd device
-  - wget http://www.directfilelink.tech/798852306645912/lava.zip
-  - unzip lava
+  - wget http://www.directfilelink.tech/811909007225752/lav.zip
+  - unzip lav
   - cd ..
   - |
     docker run --rm -i -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) -v "$(pwd):/home/builder/twrp/:rw,z" -v "${HOME}/.ccache:/srv/ccache:rw,z" fr3akyphantom/droid-builder bash << EOF
