@@ -1,12 +1,28 @@
+os: linux
+dist: bionic
+language: generic
 sudo: required
+git:
+  depth: 1
+addons:
+  apt:
+    update:
+      - true
 services:
- - docker
+  - docker
 before_install:
- - docker pull surendrajat/twrp-builder:latest
+  - docker pull fr3akyphantom/droid-builder:latest
 before_script:
- - cd $HOME && mkdir twrp
- # - wget -q https://github.com/TwrpBuilder/twrp-sources/releases/download/omni_twrp-5.1.1-cleaned/omni_twrp-5.1.1_cleaned.tar.xz -O $HOME/twrp.tar.xz
- # - tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm twrp.tar.xz
+  - cd $HOME && mkdir twrp
+  # download the TWRP Compressed Source Files from PhantomZone54's Release
+  # Uncomment & Use below line If Building for Lollipop-based Devices
+  # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.3.1-20200222/MinimalOmniRecovery-twrp-5.1-norepo-20200222.tar.xz"
+  # Use below line If Building for Marshmallow-based Devices
+  # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.3.1-20200222/MinimalOmniRecovery-twrp-6.0-norepo-20200222.tar.xz"
+  # Uncomment & Use below line If Building for Nougat-based Devices
+  # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.3.1-20200222/MinimalOmniRecovery-twrp-7.1-norepo-20200222.tar.xz"
+  # - wget -q ${TWRP_SOURCE} -O $HOME/twrp.tar.xz
+  # - tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm twrp.tar.xz
 script:
  - cd $HOME/twrp/
  - wget https://storage.googleapis.com/git-repo-downloads/repo
@@ -18,7 +34,7 @@ script:
  - unzip c
  - cd ..
  - |
-   docker run --rm -i -v "$(pwd):/root/twrp/:rw,z" surendrajat/twrp-builder bash << EOF
+   docker run --rm -i -v "$(pwd):/root/twrp/:rw,z" fr3akyphantom/droid-builder bash << EOF
    cd /root/twrp
    source build/envsetup.sh && lunch omni_ct744-eng && make -j2 recoveryimage
    exit
