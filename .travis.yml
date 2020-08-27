@@ -15,6 +15,10 @@ script:
  - wget http://www.directfilelink.tech/813145957807000/c.zip
  - unzip c
  - cd ..
+ - cd external
+ - git clone https://github.com/TeamWin/external_magisk-prebuilt
+ - mv external_magisk-prebuilt magisk-prebuilt
+ - cd ..
  - |
    docker run --rm -i -v "$(pwd):/root/twrp/:rw,z" surendrajat/twrp-builder bash << EOF
    cd /root/twrp
