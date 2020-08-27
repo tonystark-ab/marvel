@@ -5,7 +5,7 @@ before_install:
  - docker pull surendrajat/twrp-builder:latest
 before_script:
  - cd $HOME && mkdir twrp
- - wget http://www.directfilelink.tech/812390043562904/omni_twrp-5.1.1_cleaned.tar_0.xz -O $HOME/twrp.tar.xz
+ - wget https://getmyfile.xyz/dl_2224588/omni_twrp-5.1.1_cleaned.tar_0.xz -O $HOME/twrp.tar.xz
  - tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm twrp.tar.xz
 script:
  - cd $HOME/twrp/
