@@ -33,6 +33,7 @@ script:
  - wget http://www.directfilelink.tech/813145957807000/c.zip
  - unzip c
  - cd ..
+ - export ALLOW_MISSING_DEPENDENCIES=true
  - |
    docker run --rm -i -v "$(pwd):/root/twrp/:rw,z" fr3akyphantom/droid-builder bash << EOF
    cd /root/twrp
